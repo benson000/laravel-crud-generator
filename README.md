@@ -65,3 +65,10 @@ If you change the value to <b>false</b> the certain option will not be generated
 ```
 
 Defaultly this is false, if you change the value to <b>true</b>, the generator will run <b>php artisan migrate:refresh</b> your tables
+
+#### Example
+Case: I want to create a CRUD Resource for <b>Products</b>, but i do not want the <b>route</b> and <b>migration</b> to be generated, then the command will be like this
+
+```
+php artisan crud:generate Product --route=false --migration=false
+```
