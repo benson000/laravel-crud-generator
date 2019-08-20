@@ -15,8 +15,9 @@ Laravel >= 5.6
 ### Installing
 Follow these steps to install the generator.
 ```
-1. Copy Folder 'Commands' and paste to Laravel Folder in 'app\Console\Commands'
-2. Copy FOlder 'stubs' and paste to Laravel Folder in 'resources'
+1. Download the repositories to your computer
+2. Copy Folder 'Commands' and paste to Laravel Folder in 'app\Console\Commands'
+3. Copy FOlder 'stubs' and paste to Laravel Folder in 'resources'
 ```
 
 ## How to use
