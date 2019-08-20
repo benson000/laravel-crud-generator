@@ -1,0 +1,9 @@
+@extends('layouts.app')
+
+@section('content')
+	<form action="{{ route('{{modelNamePluralLowerCase}}.store') }}" method="POST">
+		@csrf
+
+		<button type="submit">Submit</button>
+	</form>
+@endsection

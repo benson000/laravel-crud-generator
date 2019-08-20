@@ -1,0 +1,157 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+use Auth;
+
+use App\{{modelName}};
+
+class {{modelName}}Controller extends Controller
+{
+    protected $viewDirectory;
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+
+        $this->viewDirectory = '{{modelNamePluralLowerCase}}';
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        ${{modelNamePluralLowerCase}} = {{modelName}}::all();
+
+        return view($this->viewDirectory . '.index', compact(['{{modelNamePluralLowerCase}}']));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view($this->viewDirectory . '.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        // validation
+        $request->validate([
+            
+        ]);
+
+        $type = 'error';
+
+        try {
+            ${{modelNameSingularLowerCase}} = new {{modelName}}($request->all());
+
+            ${{modelNameSingularLowerCase}}->save();
+
+            $type = 'success';
+            $message = 'Succeeded creating a new {{modelNameSingularLowerCase}}!';
+        } catch (\Exception $e) {
+            $type = 'error';
+            $message = 'Failed to create a new {{modelNameSingularLowerCase}}! : ' . $e->getMessage();
+        }
+
+        return redirect()->back()->with($type, $message);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        ${{modelNameSingularLowerCase}} = {{modelName}}::findOrFail($id);
+        
+        return view($this->viewDirectory . '.view', compact(['{{modelNameSingularLowerCase}}']));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        ${{modelNameSingularLowerCase}} = {{modelName}}::findOrFail($id);
+
+        return view($this->viewDirectory . '.edit', compact(['{{modelNameSingularLowerCase}}']));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        // validation
+        $request->validate([
+
+        ]);
+
+        $type = 'error';
+
+        try {
+            ${{modelNameSingularLowerCase}} = {{modelName}}::findOrFail($id);
+            
+            ${{modelNameSingularLowerCase}}->fill($request->all());
+            
+            ${{modelNameSingularLowerCase}}->save();
+
+            $type = 'success';
+            $message = 'Succeeded updating a {{modelNameSingularLowerCase}} data!';
+        } catch (\Exception $e) {
+            $type = 'error';
+            $message = 'Failed to update a {{modelNameSingularLowerCase}} data! : ' . $e->getMessage();
+        }
+
+        return redirect()->back()->with($type, $message);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $type = 'error';
+
+        try {
+            ${{modelNameSingularLowerCase}} = {{modelName}}::findOrFail($id);
+
+            ${{modelNameSingularLowerCase}}->delete();
+
+            $type = 'success';
+            $message = 'Succeeded deleting a {{modelNameSingularLowerCase}} data!';
+        } catch (Exception $e) {
+            $type = 'error';
+            $message = 'Failed to delete a {{modelNameSingularLowerCase}} data! : ' . $e->getMessage();
+        }
+
+        return redirect()->back()->with($type, $message);
+    }
+}

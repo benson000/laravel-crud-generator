@@ -1,0 +1,18 @@
+@extends('layouts.app')
+
+@section('content')
+	<table>
+		<tbody>
+			@foreach(${{modelNamePluralLowerCase}} as $key => ${{modelNameSingularLowerCase}})
+				<tr>
+					<td>{{ ${{modelNameSingularLowerCase}}->attribute }}</td>
+					<td>{{ ${{modelNameSingularLowerCase}}->attribute }}</td>
+					<td>{{ ${{modelNameSingularLowerCase}}->attribute }}</td>
+					<td>{{ ${{modelNameSingularLowerCase}}->attribute }}</td>
+				</tr>
+			@endforeach
+		</tbody>
+	</table>
+
+	<a href="{{ route('{{modelNamePluralLowerCase}}.create') }}" class="btn btn-success">Tambahkan</a>
+@endsection
