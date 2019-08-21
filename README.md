@@ -30,7 +30,7 @@ php artisan crud:generate Product --route=true
 *The option --route make the generator generate the resource route in web.php*
 
 ### Options
-These are options with their default values
+These are options with their default values, in default it has value of <b>true</b>, while the condition still true, the element such as <b>Controller</b>, <b>Model</b>, <b>Migration</b>, <b>Route</b>, <b>View</b> will be generated. Add the option to disable generating of certain element(s).
 
 1. Controller
 ```
@@ -57,14 +57,12 @@ These are options with their default values
 --view=true
 ```
 
-If you change the value to <b>false</b> the certain option will not be generated
+By default, migrate value is <b>false</b>, if you change the value to <b>true</b>, the generator will run <b>php artisan migrate:refresh</b> to your database
 
 6. Migrate
 ```
 --view=false
 ```
-
-Defaultly this is false, if you change the value to <b>true</b>, the generator will run <b>php artisan migrate:refresh</b> your tables
 
 #### Example
 Case: I want to create a CRUD Resource for <b>Products</b>, but i do not want the <b>route</b> and <b>migration</b> to be generated, then the command will be like this
