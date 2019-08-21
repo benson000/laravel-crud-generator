@@ -17,7 +17,7 @@ Follow these steps to install the generator.
 ```
 1. Download the repositories to your computer
 2. Copy Folder 'Commands' and paste to Laravel Folder in 'app\Console\Commands'
-3. Copy FOlder 'stubs' and paste to Laravel Folder in 'resources'
+3. Copy Folder 'stubs' and paste to Laravel Folder in 'resources'
 ```
 
 ## How to use
@@ -70,3 +70,5 @@ Case: I want to create a CRUD Resource for <b>Products</b>, but i do not want th
 ```
 php artisan crud:generate Product --route=false --migration=false
 ```
+
+*Note: Please use singular expression for a resource*
